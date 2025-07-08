@@ -38,33 +38,19 @@ body {
 
 @keyframes floatHeart {
     0% {
-        transform: translateY(0) rotate(0deg) scale(0.7);
+        transform: translateY(100vh) rotate(0deg) scale(0.5);
         opacity: 0;
-        filter: hue-rotate(0deg);
     }
     20% {
         opacity: 1;
-        filter: hue-rotate(90deg); // 👈 Efecto de cambio de color
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.3);
     }
     80% {
-        opacity: 0.9;
-        filter: hue-rotate(180deg);
+        opacity: 0.8;
     }
     100% {
-        transform: translateY(-400px) rotate(720deg) scale(1.5); // 👈 Suben más alto + rotación completa
+        transform: translateY(-100px) rotate(360deg) scale(1.2);
         opacity: 0;
-        filter: hue-rotate(360deg);
     }
-}
-
-.heart {
-    /* Añade esto para mejorar el efecto */
-    will-change: transform, opacity; /* Optimización para animación */
-    transition: opacity 0.5s ease-out;
 }
 
 .pulse-container {
@@ -419,86 +405,5 @@ p {
     }
     .secret-btn {
         font-size: 1rem;
-    }
-  }
-/* Ajustes específicos para móvil */
-@media (max-width: 768px) {
-    .hearts-container {
-        z-index: 2; /* 👈 Por encima del fondo pero debajo del mensaje */
-        top: 40%;   /* 👈 Empiezan más arriba */
-    }
-    
-    .heart {
-        font-size: 18px !important; /* Tamaño más pequeño para móvil */
-        animation: floatHeartMobile linear infinite; /* 👈 Nueva animación para móvil */
-    }
-    
-    @keyframes floatHeartMobile {
-        0% {
-            transform: translateY(0) rotate(0deg) scale(0.6);
-            opacity: 0;
-        }
-        20% {
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-150px) rotate(360deg) scale(1);
-            opacity: 0;
-        }
-    }
-    
-    .message {
-        z-index: 10; /* 👈 Asegura que el mensaje esté siempre arriba */
-        position: relative;
-    }
-}
-/* Animación de órbita */
-@keyframes orbitHeart {
-    0% {
-        transform: 
-            translate(-50%, -50%)
-            rotate(var(--start-angle))
-            translateX(calc(var(--orbit-radius) * 0.7))
-            rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 0.9;
-    }
-    100% {
-        transform: 
-            translate(-50%, -50%)
-            rotate(calc(var(--start-angle) + 6.283rad)) /* 360° en radianes */
-            translateX(calc(var(--orbit-radius) * 0.7))
-            rotate(720deg);
-        opacity: 0;
-    }
-}
-
-.heart {
-    --orbit-radius: min(30vw, 200px); /* Radio de órbita responsive */
-    position: absolute;
-    animation: 
-        orbitHeart var(--duration) linear infinite,
-        pulseHeart 2s ease-in-out infinite alternate;
-    transform-origin: center;
-    will-change: transform;
-}
-
-/* Efecto adicional de latido */
-@keyframes pulseHeart {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
-}
-
-/* Ajustes para móvil */
-@media (max-width: 768px) {
-    .heart {
-        --orbit-radius: min(40vw, 150px);
-        animation-duration: 10s !important;
     }
 }
