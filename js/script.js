@@ -1,6 +1,6 @@
 function createHearts() {
     const container = document.getElementById('heartsContainer');
-    const heartCount = 100;
+    const heartCount = 150; // 👈 Aumenté la cantidad de corazones
     for (let i = 0; i < heartCount; i++) {
         const heart = document.createElement('div');
         heart.classList.add('heart');
@@ -8,10 +8,10 @@ function createHearts() {
         const size = Math.random() * 30 + 20;
         heart.style.fontSize = `${size}px`;
         heart.style.left = `${Math.random() * 100}%`;
-        heart.style.top = `${Math.random() * 100 + 100}%`;
-        const duration = Math.random() * 20 + 10;
+        heart.style.top = `${Math.random() * 100 + 50}%`; // 👈 Ahora aparecen desde la mitad de la pantalla
+        const duration = Math.random() * 30 + 20; // 👈 Duración aumentada (20-50 segundos)
         heart.style.animationDuration = `${duration}s`;
-        heart.style.animationDelay = `${Math.random() * 5}s`;
+        heart.style.animationDelay = `${Math.random() * 3}s`; // 👈 Retardo más uniforme
         container.appendChild(heart);
     }
 }
