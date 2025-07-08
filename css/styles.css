@@ -421,3 +421,34 @@ p {
         font-size: 1rem;
     }
   }
+/* Ajustes específicos para móvil */
+@media (max-width: 768px) {
+    .hearts-container {
+        z-index: 2; /* 👈 Por encima del fondo pero debajo del mensaje */
+        top: 40%;   /* 👈 Empiezan más arriba */
+    }
+    
+    .heart {
+        font-size: 18px !important; /* Tamaño más pequeño para móvil */
+        animation: floatHeartMobile linear infinite; /* 👈 Nueva animación para móvil */
+    }
+    
+    @keyframes floatHeartMobile {
+        0% {
+            transform: translateY(0) rotate(0deg) scale(0.6);
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-150px) rotate(360deg) scale(1);
+            opacity: 0;
+        }
+    }
+    
+    .message {
+        z-index: 10; /* 👈 Asegura que el mensaje esté siempre arriba */
+        position: relative;
+    }
+}
