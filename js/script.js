@@ -1,41 +1,17 @@
 function createHearts() {
     const container = document.getElementById('heartsContainer');
-    const messageBox = document.getElementById('messageContainer');
-    const heartCount = window.innerWidth <= 768 ? 60 : 100; // Menos corazones en móvil
-    
-    // Posición y tamaño del mensaje
-    const messageRect = messageBox.getBoundingClientRect();
-    const centerX = messageRect.left + messageRect.width/2;
-    const centerY = messageRect.top + messageRect.height/2;
-    const orbitRadius = Math.max(messageRect.width, messageRect.height) * 0.8;
-
+    const heartCount = 100;
     for (let i = 0; i < heartCount; i++) {
         const heart = document.createElement('div');
         heart.classList.add('heart');
         heart.innerHTML = '❤';
-        
-        // Tamaño aleatorio
-        const size = window.innerWidth <= 768 ? 
-            Math.random() * 12 + 10 : 
-            Math.random() * 20 + 15;
+        const size = Math.random() * 30 + 20;
         heart.style.fontSize = `${size}px`;
-        
-        // Posición inicial en órbita
-        const angle = Math.random() * Math.PI * 2;
-        const distance = orbitRadius * (0.7 + Math.random() * 0.3);
-        const x = centerX + Math.cos(angle) * distance;
-        const y = centerY + Math.sin(angle) * distance;
-        
-        heart.style.left = `${x}px`;
-        heart.style.top = `${y}px`;
-        heart.style.position = 'absolute';
-        
-        // Animación única para cada corazón
-        heart.style.animation = `orbitHeart ${15 + Math.random() * 20}s linear infinite`;
-        heart.style.setProperty('--center-x', `${centerX}px`);
-        heart.style.setProperty('--center-y', `${centerY}px`);
-        heart.style.setProperty('--start-angle`, `${angle}rad`);
-        
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.top = `${Math.random() * 100 + 100}%`;
+        const duration = Math.random() * 20 + 10;
+        heart.style.animationDuration = `${duration}s`;
+        heart.style.animationDelay = `${Math.random() * 5}s`;
         container.appendChild(heart);
     }
 }
@@ -155,15 +131,25 @@ function createPaintEffect(e) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    // Llama a createHearts después de que el mensaje esté posicionado
-    setTimeout(createHearts, 100); 
+    createHearts();
+    createParticles();
     
-    // Vuelve a generar corazones al redimensionar
-    window.addEventListener('resize', () => {
-        document.getElementById('heartsContainer').innerHTML = '';
-        setTimeout(createHearts, 100);
+    const secretButton = document.getElementById('secretButton');
+    const hiddenImage = document.getElementById('hiddenImage');
+    const messageContainer = document.getElementById('messageContainer');
+    const matrixContainer = document.getElementById('matrix-container');
+    
+    secretButton.addEventListener('click', function() {
+        hiddenImage.classList.add('active');
+        messageContainer.classList.add('hidden-message');
+        matrixContainer.classList.add('active');
+        startMatrixEffect();
+        
+        const audio = document.getElementById('romanticAudio');
+        if (audio.paused) {
+            audio.play().catch(e => console.log("Audio: ", e));
+        }
     });
-});
     
     hiddenImage.addEventListener('click', function() {
         this.classList.remove('active');
