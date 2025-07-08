@@ -155,25 +155,15 @@ function createPaintEffect(e) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    createHearts();
-    createParticles();
+    // Llama a createHearts después de que el mensaje esté posicionado
+    setTimeout(createHearts, 100); 
     
-    const secretButton = document.getElementById('secretButton');
-    const hiddenImage = document.getElementById('hiddenImage');
-    const messageContainer = document.getElementById('messageContainer');
-    const matrixContainer = document.getElementById('matrix-container');
-    
-    secretButton.addEventListener('click', function() {
-        hiddenImage.classList.add('active');
-        messageContainer.classList.add('hidden-message');
-        matrixContainer.classList.add('active');
-        startMatrixEffect();
-        
-        const audio = document.getElementById('romanticAudio');
-        if (audio.paused) {
-            audio.play().catch(e => console.log("Audio: ", e));
-        }
+    // Vuelve a generar corazones al redimensionar
+    window.addEventListener('resize', () => {
+        document.getElementById('heartsContainer').innerHTML = '';
+        setTimeout(createHearts, 100);
     });
+});
     
     hiddenImage.addEventListener('click', function() {
         this.classList.remove('active');
