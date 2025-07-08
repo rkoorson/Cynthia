@@ -9,7 +9,7 @@ body {
     font-family: 'Orbitron', sans-serif;
     color: #ff1493;
     overflow: hidden;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@ body {
 
 @keyframes floatHeart {
     0% {
-        transform: translateY(100vh) rotate(0deg) scale(0.5);
+        transform: translateY(-100px) rotate(0deg) scale(0.5);
         opacity: 0;
     }
     20% {
@@ -48,7 +48,7 @@ body {
         opacity: 0.8;
     }
     100% {
-        transform: translateY(-100px) rotate(360deg) scale(1.2);
+        transform: translateY(100vh) rotate(360deg) scale(1.2);
         opacity: 0;
     }
 }
