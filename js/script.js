@@ -1,25 +1,40 @@
 function createHearts() {
     const container = document.getElementById('heartsContainer');
-    const isMobile = window.innerWidth <= 768;
-    const heartCount = isMobile ? 80 : 150; // 👈 Menos corazones en móvil
+    const messageBox = document.getElementById('messageContainer');
+    const heartCount = window.innerWidth <= 768 ? 60 : 100; // Menos corazones en móvil
     
+    // Posición y tamaño del mensaje
+    const messageRect = messageBox.getBoundingClientRect();
+    const centerX = messageRect.left + messageRect.width/2;
+    const centerY = messageRect.top + messageRect.height/2;
+    const orbitRadius = Math.max(messageRect.width, messageRect.height) * 0.8;
+
     for (let i = 0; i < heartCount; i++) {
         const heart = document.createElement('div');
         heart.classList.add('heart');
         heart.innerHTML = '❤';
         
-        // Ajustes para móvil
-        if (isMobile) {
-            heart.style.fontSize = `${Math.random() * 15 + 12}px`; // Tamaño menor
-            heart.style.left = `${Math.random() * 100}%`;
-            heart.style.top = `${Math.random() * 30 + 50}%`; // 👈 Aparecen en el centro
-            heart.style.animationDuration = `${Math.random() * 15 + 10}s`;
-        } else {
-            // Configuración original para desktop
-            heart.style.fontSize = `${Math.random() * 30 + 20}px`;
-            heart.style.top = `${Math.random() * 100 + 50}%`;
-            heart.style.animationDuration = `${Math.random() * 30 + 20}s`;
-        }
+        // Tamaño aleatorio
+        const size = window.innerWidth <= 768 ? 
+            Math.random() * 12 + 10 : 
+            Math.random() * 20 + 15;
+        heart.style.fontSize = `${size}px`;
+        
+        // Posición inicial en órbita
+        const angle = Math.random() * Math.PI * 2;
+        const distance = orbitRadius * (0.7 + Math.random() * 0.3);
+        const x = centerX + Math.cos(angle) * distance;
+        const y = centerY + Math.sin(angle) * distance;
+        
+        heart.style.left = `${x}px`;
+        heart.style.top = `${y}px`;
+        heart.style.position = 'absolute';
+        
+        // Animación única para cada corazón
+        heart.style.animation = `orbitHeart ${15 + Math.random() * 20}s linear infinite`;
+        heart.style.setProperty('--center-x', `${centerX}px`);
+        heart.style.setProperty('--center-y', `${centerY}px`);
+        heart.style.setProperty('--start-angle`, `${angle}rad`);
         
         container.appendChild(heart);
     }
