@@ -38,19 +38,33 @@ body {
 
 @keyframes floatHeart {
     0% {
-        transform: translateY(100vh) rotate(0deg) scale(0.5);
+        transform: translateY(0) rotate(0deg) scale(0.7);
         opacity: 0;
+        filter: hue-rotate(0deg);
     }
     20% {
         opacity: 1;
+        filter: hue-rotate(90deg); // 👈 Efecto de cambio de color
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
     }
     80% {
-        opacity: 0.8;
+        opacity: 0.9;
+        filter: hue-rotate(180deg);
     }
     100% {
-        transform: translateY(-100px) rotate(360deg) scale(1.2);
+        transform: translateY(-400px) rotate(720deg) scale(1.5); // 👈 Suben más alto + rotación completa
         opacity: 0;
+        filter: hue-rotate(360deg);
     }
+}
+
+.heart {
+    /* Añade esto para mejorar el efecto */
+    will-change: transform, opacity; /* Optimización para animación */
+    transition: opacity 0.5s ease-out;
 }
 
 .pulse-container {
