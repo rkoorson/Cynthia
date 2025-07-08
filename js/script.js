@@ -1,17 +1,26 @@
 function createHearts() {
     const container = document.getElementById('heartsContainer');
-    const heartCount = 150; // 👈 Aumenté la cantidad de corazones
+    const isMobile = window.innerWidth <= 768;
+    const heartCount = isMobile ? 80 : 150; // 👈 Menos corazones en móvil
+    
     for (let i = 0; i < heartCount; i++) {
         const heart = document.createElement('div');
         heart.classList.add('heart');
         heart.innerHTML = '❤';
-        const size = Math.random() * 30 + 20;
-        heart.style.fontSize = `${size}px`;
-        heart.style.left = `${Math.random() * 100}%`;
-        heart.style.top = `${Math.random() * 100 + 50}%`; // 👈 Ahora aparecen desde la mitad de la pantalla
-        const duration = Math.random() * 30 + 20; // 👈 Duración aumentada (20-50 segundos)
-        heart.style.animationDuration = `${duration}s`;
-        heart.style.animationDelay = `${Math.random() * 3}s`; // 👈 Retardo más uniforme
+        
+        // Ajustes para móvil
+        if (isMobile) {
+            heart.style.fontSize = `${Math.random() * 15 + 12}px`; // Tamaño menor
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.top = `${Math.random() * 30 + 50}%`; // 👈 Aparecen en el centro
+            heart.style.animationDuration = `${Math.random() * 15 + 10}s`;
+        } else {
+            // Configuración original para desktop
+            heart.style.fontSize = `${Math.random() * 30 + 20}px`;
+            heart.style.top = `${Math.random() * 100 + 50}%`;
+            heart.style.animationDuration = `${Math.random() * 30 + 20}s`;
+        }
+        
         container.appendChild(heart);
     }
 }
