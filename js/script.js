@@ -1,11 +1,10 @@
 // Lista de mensajes para el efecto matrix
 const MESSAGES = [
-    "MYLOB",
-    "AMO",
-    "TUS BESOS",
-    "ERES TODO",
-    "GRRR",
-    "MI REINA",
+    "CYNTHIA",
+    "TE AMO",
+    "TE QUIERO",
+    "TE EXTRAÑO",
+    "I LOVE YOU",
     "LOVE",
 ];
 
