@@ -1,15 +1,12 @@
 // Lista de mensajes para el efecto matrix
 const MESSAGES = [
-    "TE AMO",
-    "MI VIDA",
-    "CYNTHIA",
-    "ERES TODO",
-    "GRRR 💘",
-    "MI REINA",
-    "LOCURA",
-    "LUCES",
+    "MYLOB",
+    "AMO",
     "TUS BESOS",
-    "MI TODO"
+    "ERES TODO",
+    "GRRR",
+    "MI REINA",
+    "LOVE",
 ];
 
 function getRandomMessage() {
