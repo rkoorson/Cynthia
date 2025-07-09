@@ -407,3 +407,12 @@ p {
         font-size: 1rem;
     }
 }
+
+@keyframes rainbowText {
+    0% { color: #ff1493; }
+    20% { color: #ff69b4; }
+    40% { color: #ffd700; }
+    60% { color: #00ffff; }
+    80% { color: #00ff00; }
+    100% { color: #ff1493; }
+}
