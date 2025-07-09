@@ -410,10 +410,10 @@ p {
 }
 
 @keyframes rainbowText {
-    0% { color: #ff1493; }
-    20% { color: #ff69b4; }
-    40% { color: #ffd700; }
-    60% { color: #00ffff; }
-    80% { color: #00ff00; }
-    100% { color: #ff1493; }
+    0% { color: #ff00ff; }
+    20% { color: #ff0080; }
+    40% { color: #ff0000; }
+    60% { color: #ae3c7e; }
+    80% { color: #c20fb0; }
+    100% { color: #e52e42; }
 }
