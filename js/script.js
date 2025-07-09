@@ -32,7 +32,7 @@ function createParticles() {
     }, 100);
 }
 
-const MATRIX_TEXT = "TE AMO";
+const MATRIX_TEXT = "MY LOB";
 const matrixColumns = [];
 let matrixAnimationId = null;
 const columnWidth = 100;
