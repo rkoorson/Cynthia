@@ -305,7 +305,7 @@ p {
     flex-direction: column;
     align-items: center;
 
-    animation: matrixFall 15s linear infinite; /* ← Asegúrate de que esto esté */
+    animation: matrixFall 20s linear infinite; /* ← Asegúrate de que esto esté */
 }
 
 @keyframes matrixFall {
