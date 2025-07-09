@@ -318,7 +318,7 @@ p {
 
 .matrix-item {
     margin: 8px 0;
-    animation: matrixGlow 2s infinite;
+    animation: matrixGlow 2s infinite, rainbowText 3s linear infinite;
     display: block;
     width: 100%;
 }
