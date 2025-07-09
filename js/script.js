@@ -8,7 +8,7 @@ function createHearts() {
         const size = Math.random() * 30 + 20;
         heart.style.fontSize = `${size}px`;
         heart.style.left = `${Math.random() * 100}%`;
-        heart.style.top = `${Math.random() * -20 - 10}%`;
+        heart.style.top = `${Math.random() * -20 - 10}%`; // 🔁 Cambiado
         const duration = Math.random() * 20 + 10;
         heart.style.animationDuration = `${duration}s`;
         heart.style.animationDelay = `${Math.random() * 5}s`;
