@@ -58,9 +58,27 @@ function startMatrixEffect() {
         for (let j = 0; j < ITEMS_PER_COLUMN; j++) {
             const item = document.createElement('div');
             item.className = 'matrix-item';
-            item.textContent = MATRIX_TEXT;
+item.textContent = getRandomMessage(); // Usa una frase distinta
             column.appendChild(item);
         }
+
+        const MESSAGES = [
+    "TE AMO",
+    "MI VIDA",
+    "CYNTHIA",
+    "ERES TODO",
+    "MI LUZ",
+    "GRRR 💘",
+    "MI CIELO",
+    "MI AMOR",
+    "MI REINA",
+    "MI LOCURA"
+];
+
+function getRandomMessage() {
+    const index = Math.floor(Math.random() * MESSAGES.length);
+    return MESSAGES[index];
+}
         
         const duration = 5 + Math.random() * 10;
         column.style.animationDuration = `${duration}s`;
